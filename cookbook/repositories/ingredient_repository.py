@@ -25,10 +25,10 @@ class IngredientRepository:
     
     @staticmethod
     async def create(db: AsyncSession, ingredient: Ingredient):
-        db.add(Ingredient)
+        db.add(ingredient)
         await db.flush()
         return ingredient
     
     @staticmethod
-    async def delet(db: AsyncSession, ingredient: Ingredient):
+    async def delete(db: AsyncSession, ingredient: Ingredient):
         await db.delete(ingredient)

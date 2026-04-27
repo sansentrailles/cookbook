@@ -11,6 +11,6 @@ class Recipe(Base):
     title: Mapped[str] = mapped_column(String(255), nullable=False)
     description: Mapped[str] = mapped_column(Text(), nullable=False)
 
-    ingredients: Mapped[list["Ingredients"]] = relationship(
+    ingredients: Mapped[list["Ingredient"]] = relationship(
         secondary="recipe_ingredients", back_populates="recipes"
     )
