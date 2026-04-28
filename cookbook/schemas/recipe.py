@@ -22,6 +22,10 @@ class RecipeUpdate(BaseModel):
 
     model_config = ConfigDict(from_attributes=True)
 
+    @field_validator("title")
+    def normalize_name(cls, v: str) -> str:
+        return v.strip().lower()
+
 class RecipeRead(RecipeBase):
     id: int
     ingredients: list[IngredientRead] = Field(default_factory=list)

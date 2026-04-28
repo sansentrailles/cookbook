@@ -1,15 +1,15 @@
 from fastapi import APIRouter, HTTPException, status
-from cookbook.exceptions import NotFoundError
 from sqlalchemy.exc import SQLAlchemyError
 
 from cookbook.database import DbSession
+from cookbook.exceptions import NotFoundError
 from cookbook.schemas.recipe import RecipeCreate, RecipeRead, RecipeUpdate
 from cookbook.services.recipe_service import (
     create_recipe_service,
     delete_recipe_service,
     get_all_recipes,
     get_recipe_by_id,
-    update_recipe_service
+    update_recipe_service,
 )
 
 router = APIRouter(prefix="/recipes", tags=["Recipes"])
